@@ -39,7 +39,7 @@ def seek_IDAT(fo):
             return 0
         fo.seek(size+4, 1)
 
-def main(target, *inpaths):
+def pngs2apng(target, *inpaths):
     outfile = open(target, 'w')
     # write PNG HEADER
     outfile.write(PNG_HEADER)
@@ -118,4 +118,4 @@ def main(target, *inpaths):
     outfile.close()
 
 if __name__ == "__main__":
-    sys.exit(main(*sys.argv[1:]))
+    sys.exit(pngs2apng(*sys.argv[1:]))

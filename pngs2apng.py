@@ -90,7 +90,7 @@ def pngs2apng(target, *inpaths):
                     if size == 0:
                         outfile.write(struct.pack("!I", data_len))
                         outfile.write(chunk)
-                        outfile.write(struct.pack("!i", zlib.crc32(chunk)))
+                        outfile.write(struct.pack("!I", zlib.crc32(chunk) & 0xffffffff))
                         break
                     chunk += infile.read(size)
                     data_len += size
